@@ -11,6 +11,9 @@ returns random item from a "items" list either
 */
 
 function gameRound (playerSelection,computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+
     if (playerSelection === computerSelection){
         return("Noone wins, play again!")
 
