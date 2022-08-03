@@ -62,10 +62,8 @@ function game() {
         return("Noone wins scores are "+ playerCount + " and " +computerCount)
     }
 }
-
 let playerCount = 0;
 let computerCount = 0;
-
 let playerSelection = "rock";
 
 console.log(game());
