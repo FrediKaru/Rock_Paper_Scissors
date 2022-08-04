@@ -1,0 +1,47 @@
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: sans-serif;
+    text-transform:uppercase;
+    font-size: 16px;
+    margin: 5px;
+}
+#rock {
+    background-color: #555555;
+}
+#rock:hover {
+    background-color: #929292;
+    transition: 0.3s;
+}
+
+#paper {
+    background-color: #f44336;
+}
+#paper:hover {
+    background-color: #fe695e;
+    transition: 0.3s;
+}
+
+#scissors {
+    background-color: #e7e7e7; color: black;;
+}
+#scissors:hover {
+    background-color: #878787; color: black;;
+    transition: 0.3s;
+}
+
+h2 {
+    color: rgb(0, 16, 141);
+    font-size: 40px;
+}
+
+#container {
+    padding: 40px;
+    margin: 100px;
+}
+

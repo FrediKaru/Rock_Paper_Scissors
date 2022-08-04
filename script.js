@@ -1,4 +1,8 @@
 let items = ["rock", "paper", "scissors"];
+let playerCount = 0;
+let computerCount = 0;
+let playerSelection = "rock";
+const container = document.querySelector('#display');
 
 function getComputerChoice() {
     let item = items[Math.floor(Math.random()* items.length)];
@@ -49,21 +53,70 @@ function playRound (playerSelection,computerSelection) {
 /* Function compares opponents players choice with computer choice and declares winner */
 
 function game() {
-    for (let round = 0; round < 5; round++){
-        playRound (prompt("Rock-paper-scissors!", ""),getComputerChoice())
-        console.log("player score is " + playerCount + " and computer score is " + computerCount);
-    }
+    const scoreDisplay = document.createElement('h2')
+    scoreDisplay.textContent = `Player: ${playerCount}    Computer: ${computerCount}`;
+    container.appendChild(scoreDisplay);
 
-    if (playerCount > computerCount) {
-        return("Player wins with a score of "+playerCount)
-    } else if (playerCount < computerCount) {
-        return("Computer wins with a score of "+computerCount)
+    let round = 0
+
+        const rock = document.querySelector("#rock")
+        const paper = document.querySelector("#paper")
+        const scissors = document.querySelector("#scissors")
+
+rock.addEventListener('click', e => {
+     console.log("You pressed rock")
+     playRound("rock",getComputerChoice())
+     round += 1;
+     checkWinner()
+})
+
+paper.addEventListener('click', e => {
+    console.log("You pressed paper")
+    playRound("paper",getComputerChoice())
+    round += 1;
+    checkWinner()
+    
+})
+
+scissors.addEventListener('click', e => {
+    console.log("You pressed scissors")
+    playRound("scissors",getComputerChoice())
+    round += 1;
+    checkWinner()
+})   
+    
+function displayScore(){
+    console.log("Player score is " + playerCount + " and computer score is " + computerCount);
+    scoreDisplay.textContent = `Player: ${playerCount}      Computer: ${computerCount}`;
+}
+
+function resetScore() {
+    playerCount = 0;
+    computerCount = 0;
+    round = 0;
+}
+
+function checkWinner() {
+    if (playerCount == 5 || computerCount == 5) {
+        displayScore()
+        if (playerCount > computerCount) {
+            scoreDisplay.textContent = `Player wins with a score of ${playerCount}`;
+            resetScore()
+            return;
+        } else if (playerCount < computerCount) {
+            scoreDisplay.textContent = `Computer wins with a score of ${computerCount}`;
+            resetScore()
+            return;
+        } else {
+            scoreDisplay.textContent = `Noone wins scores are ${playerCount} and ${computerCount}.`;
+            resetScore()
+            return;
+        }
     } else {
-        return("Noone wins scores are "+ playerCount + " and " +computerCount)
+        displayScore()
     }
 }
-let playerCount = 0;
-let computerCount = 0;
-let playerSelection = "rock";
+}
+
 
 console.log(game());
